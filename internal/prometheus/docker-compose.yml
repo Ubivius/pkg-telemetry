@@ -10,6 +10,25 @@ services:
       - "60000:9090"
     deploy:
       mode: host
+  jaeger:
+    image: jaegertracing/all-in-one
+    container_name: jaeger-all
+    environment:
+      - COLLECTOR_ZIPKIN_HOST_PORT=:9411
+    networks:
+      metrics_internal:
+        ipv4_address: 192.168.6.12
+    ports:
+      - "5775:5775/udp"
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+      - "16686:16686"
+      - "14268:14268"
+      - "14250:14250"
+      - "9411:9411"
+    deploy:
+      mode: host
   application:
     image: microservice/template
     container_name: microservice-template
