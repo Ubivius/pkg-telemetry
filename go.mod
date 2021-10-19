@@ -10,6 +10,9 @@ require (
 	github.com/prometheus/procfs v0.7.3 // indirect
 	github.com/prometheus/statsd_exporter v0.22.2 // indirect
 	go.opencensus.io v0.23.0
+	go.opentelemetry.io/otel v1.0.1
+	go.opentelemetry.io/otel/exporters/jaeger v1.0.1
+	go.opentelemetry.io/otel/sdk v1.0.1
 	golang.org/x/net v0.0.0-20211008194852-3b03d305991f // indirect
 	golang.org/x/sys v0.0.0-20211007075335-d3039528d8ac // indirect
 	golang.org/x/text v0.3.7 // indirect
