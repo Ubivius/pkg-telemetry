@@ -9,7 +9,6 @@ import (
 	semconv "go.opentelemetry.io/otel/semconv/v1.4.0"
 )
 
-var service = "microservice-template-traces"
 var environment = "dev"
 
 const id = 1
@@ -27,7 +26,7 @@ func CreateTracerProvider(url string, name string) *tracesdk.TracerProvider {
 		// Record information about this application in an Resource.
 		tracesdk.WithResource(resource.NewWithAttributes(
 			semconv.SchemaURL,
-			semconv.ServiceNameKey.String(service),
+			semconv.ServiceNameKey.String(name),
 			attribute.String("environment", environment),
 			attribute.Int64("ID", id),
 		)),
