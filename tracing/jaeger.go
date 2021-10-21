@@ -9,9 +9,10 @@ import (
 	semconv "go.opentelemetry.io/otel/semconv/v1.4.0"
 )
 
-var environment = "dev"
-
-const id = 1
+const (
+	environment = "dev"
+	id          = 1
+)
 
 func CreateTracerProvider(url string, name string) *tracesdk.TracerProvider {
 	log.Info("Starting trace exporter")
