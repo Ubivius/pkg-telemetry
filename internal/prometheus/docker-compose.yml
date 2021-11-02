@@ -10,9 +10,9 @@ services:
       metrics_internal:
         ipv4_address: 192.168.6.13
     ports:
-      - "27888:27017"
+      - "27017:27017"
     deploy:
-      mode: host
+      mode: global
   prometheus:
     image: my-prometheus
     container_name: prometheus
@@ -22,7 +22,7 @@ services:
     ports:
       - "60000:9090"
     deploy:
-      mode: host
+      mode: global
   jaeger:
     image: jaegertracing/all-in-one
     container_name: jaeger-all
@@ -41,13 +41,13 @@ services:
       - "14250:14250"
       - "9411:9411"
     deploy:
-      mode: host
+      mode: global
   application:
     image: microservice/template
     container_name: microservice-template
     environment:
       - DB_HOSTNAME=192.168.6.13
-      - DB_PORT=27888
+      - DB_PORT=27017
       - DB_USERNAME=admin
       - DB_PASSWORD=pass
     networks:
