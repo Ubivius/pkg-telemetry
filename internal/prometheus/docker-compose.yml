@@ -46,8 +46,10 @@ services:
     image: microservice/template
     container_name: microservice-template
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=pass
+      - DB_HOSTNAME=192.168.6.13
+      - DB_PORT=27888
+      - DB_USERNAME=admin
+      - DB_PASSWORD=pass
     networks:
       metrics_internal:
         ipv4_address: 192.168.6.11
