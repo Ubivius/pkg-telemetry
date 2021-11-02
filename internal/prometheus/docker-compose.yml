@@ -1,5 +1,18 @@
 version: "3.9"
 services:
+  mongo-db:
+    image: mongo
+    container_name: mongo-service
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    networks:
+      metrics_internal:
+        ipv4_address: 192.168.6.13
+    ports:
+      - "27888:27017"
+    deploy:
+      mode: host
   prometheus:
     image: my-prometheus
     container_name: prometheus
@@ -32,6 +45,9 @@ services:
   application:
     image: microservice/template
     container_name: microservice-template
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=pass
     networks:
       metrics_internal:
         ipv4_address: 192.168.6.11
