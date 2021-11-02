@@ -12,7 +12,7 @@ services:
     ports:
       - "27017:27017"
     deploy:
-      mode: global
+      mode: host
   prometheus:
     image: my-prometheus
     container_name: prometheus
@@ -22,7 +22,7 @@ services:
     ports:
       - "60000:9090"
     deploy:
-      mode: global
+      mode: host
   jaeger:
     image: jaegertracing/all-in-one
     container_name: jaeger-all
@@ -41,7 +41,7 @@ services:
       - "14250:14250"
       - "9411:9411"
     deploy:
-      mode: global
+      mode: host
   application:
     image: microservice/template
     container_name: microservice-template
