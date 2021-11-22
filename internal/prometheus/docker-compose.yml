@@ -50,6 +50,7 @@ services:
       - DB_PORT=27017
       - DB_USERNAME=admin
       - DB_PASSWORD=pass
+      - JAEGER_ENDPOINT=http://192.168.6.12:14268/api/traces
     networks:
       metrics_internal:
         ipv4_address: 192.168.6.11
